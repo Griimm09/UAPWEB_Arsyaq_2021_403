@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UAP WEB</title>
+  </head>
+  <body>
+    <h1>Menu</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Kode</th>
+          <th>Nama</th>
+          <th>Harga</th>
+        </tr>
+      </thead>
+      <tbody id="daftarBarang"></tbody>
+    </table>
+
+    <h1>Inputan User</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <td>Masukan Kode</td>
+          <td>:</td>
+          <td><input type="text" id="input1" /></td>
+        </tr>
+        <tr>
+          <td>Banyak Barang</td>
+          <td>:</td>
+          <td><input type="text" id="input2" /></td>
+        </tr>
+        <tr>
+          <td>
+            <button onclick="Total()">Submit</button>
+          </td>
+        </tr>
+      </thead>
+    </table>    
+  </body>
+  <script>
+    const barang = {
+      "001": { nama: "Barang A", harga: 10000 },
+      "002": { nama: "Barang B", harga: 20000 },
+      "003": { nama: "Barang C", harga: 30000 },
+    };
+    
+    function tampilkanBarang() {
+      daftarBarangElement = document.getElementById("daftarBarang");
+    
+      for (kode in barang) {
+        const { nama, harga } = barang[kode];
+    
+        row = document.createElement("tr");
+    
+        kodeCol = document.createElement("td");
+        kodeCol.textContent = kode;
+        row.appendChild(kodeCol);
+    
+        namaCol = document.createElement("td");
+        namaCol.textContent = nama;
+        row.appendChild(namaCol);
+    
+        hargaCol = document.createElement("td");
+        hargaCol.textContent = harga;
+        row.appendChild(hargaCol);
+    
+        daftarBarangElement.appendChild(row);
+      }
+    }
+    
+    function Total() {
+      var kodeBarang = document.getElementById("input1").value;
+      var banyakBarang = document.getElementById("input2").value;
+      
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      tampilkanBarang();
+    });
+  </script>
+</html>
+
+
+
+
